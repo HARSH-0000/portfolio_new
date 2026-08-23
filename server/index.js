@@ -30,19 +30,31 @@ app.post("/api/chat", async (req, res) => {
       return res.status(400).json({ error: "Invalid request: messages array required" })
     }
 
-    const response = await fetch(NVIDIA_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${API_KEY}`,
-      },
-      body: JSON.stringify({
-        model: MODEL,
-        messages,
-        max_tokens: 512,
-        temperature: 0.6,
-      }),
-    })
+    let response: Response
+    let retries = 2
+    while (retries > 0) {
+      try {
+        response = await fetch(NVIDIA_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${API_KEY}`,
+          },
+          body: JSON.stringify({
+            model: MODEL,
+            messages,
+            max_tokens: 512,
+            temperature: 0.6,
+          }),
+          signal: AbortSignal.timeout(60000),
+        })
+        break
+      } catch (err) {
+        retries -= 1
+        if (retries === 0) throw err
+        await new Promise((r) => setTimeout(r, 1000))
+      }
+    }
 
     if (!response.ok) {
       const text = await response.text()
