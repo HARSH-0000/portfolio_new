@@ -12,7 +12,6 @@ export const portfolio = {
       { label: "experience", href: "#experience" },
       { label: "projects", href: "#projects" },
       { label: "playground", href: "#playground" },
-      { label: "ask", href: "#ask" },
       { label: "skills", href: "#skills" },
       { label: "contact", href: "#contact" },
     ],
@@ -217,18 +216,6 @@ export const portfolio = {
 
   footer: {
     name: "Harsh Sharma",
-  },
-
-  askMe: {
-    botName: "harsh-bot",
-    greeting:
-      "Hi — I'm a small AI that answers questions about Harsh. Ask about his experience, projects, stack, or availability.",
-    suggestions: [
-      "What are you working on right now?",
-      "Walk me through your RAG stack.",
-      "Are you open to full-time roles?",
-      "Tell me about the medical chatbot project.",
-    ],
   },
 } as const
 

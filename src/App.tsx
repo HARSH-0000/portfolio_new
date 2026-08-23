@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { About } from "./components/About"
-import { AskMe } from "./components/AskMe"
 import { BackgroundFX } from "./components/BackgroundFX"
 import { Contact } from "./components/Contact"
 import { Credentials } from "./components/Credentials"
@@ -38,7 +37,6 @@ function App() {
         <Projects />
         <Marquee />
         <Playground />
-        <AskMe />
         <Skills />
         <Credentials />
         <Contact />
