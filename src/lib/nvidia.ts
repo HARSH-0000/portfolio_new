@@ -1,8 +1,7 @@
 import { buildResumeContext } from "./resumeContext"
 
 const SYSTEM_PROMPT = buildResumeContext()
-const PROXY_URL = "http://localhost:3001/api/chat"
-const MODEL = "meta/llama-3.3-70b-instruct"
+const PROXY_URL = import.meta.env.VITE_PROXY_URL || "http://localhost:3001/api/chat"
 
 interface ChatMessage {
   role: "user" | "bot"
