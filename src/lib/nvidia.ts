@@ -1,7 +1,7 @@
 import { buildResumeContext } from "./resumeContext"
 
 const SYSTEM_PROMPT = buildResumeContext()
-const PROXY_URL = import.meta.env.VITE_PROXY_URL || "http://localhost:3001/api/chat"
+const PROXY_URL = "https://portfolio-new-7fst.onrender.com/api/chat"
 
 interface ChatMessage {
   role: "user" | "bot"
