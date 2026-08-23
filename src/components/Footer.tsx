@@ -9,6 +9,12 @@ export function Footer() {
         <p className="text-muted text-sm font-mono">
           © {new Date().getFullYear()} {footer.name}
         </p>
+        <a
+          href="tel:+919767755630"
+          className="text-muted text-sm font-mono hover:text-accent transition-colors"
+        >
+          Reach out @ +91 9767755630
+        </a>
       </div>
     </footer>
   )

@@ -12,7 +12,14 @@ export function Contact() {
         href={`mailto:${contact.email}`}
         className="text-2xl md:text-3xl text-gradient font-mono hover:opacity-80 transition-opacity block mb-8"
       >
-        {contact.email}
+        Initialize Connection
+      </a>
+
+      <a
+        href="tel:+919767755630"
+        className="text-muted font-mono text-sm mb-8 hover:text-accent transition-colors"
+      >
+        Reach out @ +91 9767755630
       </a>
 
       <div className="flex flex-wrap gap-3 mb-12">
