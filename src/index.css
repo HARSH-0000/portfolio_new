@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-bg: #071e30;
+  --color-surface: #0c2f4d;
+  --color-border: #1a4a6e;
+  --color-muted: #8fb3cc;
+  --color-text: #e8f4fc;
+  --color-accent: #38bdf8;
+  --color-accent-dim: #0284c7;
+  --color-green: #4ade80;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg text-text font-sans antialiased;
+    margin: 0;
+  }
+
+  ::selection {
+    background: rgba(56, 189, 248, 0.3);
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent to-green bg-clip-text text-transparent;
+  }
+
+  .section-padding {
+    @apply px-6 py-24 md:px-12 lg:px-20 max-w-6xl mx-auto;
+  }
+
+  .glass {
+    @apply bg-surface/60 backdrop-blur-md border border-border;
+  }
+}
+
+/* dynamic background — code grids at top-left & bottom-right + drifting blobs */
+.bg-grid-tl,
+.bg-grid-br {
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.09) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.bg-grid-tl {
+  mask-image: radial-gradient(ellipse 100% 100% at 0% 0%, black 15%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 100% 100% at 0% 0%, black 15%, transparent 70%);
+}
+
+.bg-grid-br {
+  mask-image: radial-gradient(ellipse 100% 100% at 100% 100%, black 15%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 100% 100% at 100% 100%, black 15%, transparent 70%);
+}
+
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  will-change: transform;
+}
+
+.blob-1 {
+  width: 500px;
+  height: 500px;
+  top: -12%;
+  left: -8%;
+  background: rgba(56, 189, 248, 0.15);
+  animation: drift-1 26s ease-in-out infinite alternate;
+}
+
+.blob-2 {
+  width: 440px;
+  height: 440px;
+  top: 32%;
+  right: -12%;
+  background: rgba(45, 212, 191, 0.12);
+  animation: drift-2 32s ease-in-out infinite alternate;
+}
+
+.blob-3 {
+  width: 400px;
+  height: 400px;
+  bottom: -14%;
+  left: 22%;
+  background: rgba(74, 222, 128, 0.1);
+  animation: drift-3 38s ease-in-out infinite alternate;
+}
+
+@keyframes drift-1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(130px, 70px) scale(1.15);
+  }
+  100% {
+    transform: translate(50px, 150px) scale(0.95);
+  }
+}
+
+@keyframes drift-2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-110px, -80px) scale(1.1);
+  }
+  100% {
+    transform: translate(-60px, 90px) scale(1.2);
+  }
+}
+
+@keyframes drift-3 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(90px, -70px) scale(1.12);
+  }
+  100% {
+    transform: translate(-80px, -40px) scale(0.92);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.animate-dash-flow {
+  animation: dash-flow 1.2s linear infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
