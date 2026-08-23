@@ -18,6 +18,10 @@ if (!API_KEY) {
   console.warn("Warning: NVIDIA_API_KEY is not set in .env")
 }
 
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" })
+})
+
 app.post("/api/chat", async (req, res) => {
   try {
     const { messages } = req.body || {}
