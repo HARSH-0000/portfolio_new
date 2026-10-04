@@ -73,6 +73,15 @@ export const portfolio = {
     heading: "Real AI/ML projects.",
     items: [
       {
+        category: "Computer Vision",
+        title: "VisionX — Automatic Number Plate Detection",
+        description:
+          "A web-based ANPR application built with FastAPI that detects number plates from uploaded images or a live webcam, with configurable confidence, IoU, and image-size inference parameters..",
+        tags: ["Python", "FastAPI", "YOLO", "OpenCV"],
+        url: "https://anpr-9s41.onrender.com/",
+        github: "https://github.com/HARSH-0000/ANPR",
+      },
+      {
         category: "AI · RAG · LLM",
         title: "Medical Chatbot",
         description:
