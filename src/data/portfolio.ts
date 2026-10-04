@@ -78,12 +78,12 @@ export const portfolio = {
         description:
           "A web-based ANPR application built with FastAPI that detects number plates from uploaded images or a live webcam, with configurable confidence, IoU, and image-size inference parameters..",
         tags: ["Python", "FastAPI", "YOLO", "OpenCV"],
-        url: "https://anpr-9s41.onrender.com/",
+        url: "#",
         github: "https://github.com/HARSH-0000/ANPR",
       },
       {
         category: "AI · RAG · LLM",
-        title: "Medical Chatbot",
+        title: "Medical Assistant",
         description:
           "An end-to-end Retrieval-Augmented Generation (RAG) chatbot combining a Large Language Model with a Pinecone vector store to deliver context-aware responses on medicines and drug interactions.",
         tags: ["Python", "LangChain", "Pinecone", "Streamlit", "OpenAI"],
